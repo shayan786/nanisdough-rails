@@ -1,0 +1,16 @@
+%section.contact
+  - if flash[:notice]
+    = flash[:notice]
+  .container
+    %form{"accept-charset" => "UTF-8", action: "/contact", method: "POST"}
+      = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+      .form-group
+        %label{for: 'contact__email'}
+          Email Address
+        %input#contact__email.contact__email.form-control{type: 'text', name: 'contact[email]', placeholder: 'Email', required: 'required'}
+      .form-group
+        %label{for: 'contact__message'}
+          Message
+        %textarea#contact__messsage.contact__message.form-control{name: 'contact[message]', rows: 4, placeholder: 'Umm...yes i need some doughnuts this moment please!', required: 'required'}
+      %button.btn{type: 'submit'}
+        Submit

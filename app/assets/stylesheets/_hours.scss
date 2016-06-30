@@ -1,0 +1,29 @@
+.hours {
+  color: #FFF;
+
+  &__title {
+    opacity: 0.7;
+    margin-top: 3.2em;
+  }
+
+  &__status {
+    margin-top: 0.4em;
+  }
+
+  &__timing {
+    margin-top: 2em;
+
+    .row {
+      margin-top: 0.8em;
+    }
+
+    &_day {
+      opacity: 0.7;
+      font-size: 1.1em;
+    }
+
+    &_time {
+      font-size: 1.1em;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+header {
+  z-index: 1;
+  height: 80px;
+  background: $nani_red;
+
+  @include respondTo(desktop) {
+    width: 80px;
+  }
+
+  .logo {
+    border-radius: 50%;
+    width: 120px;
+    position: relative;
+    left: 23%;
+
+    @include respondTo(desktop) {
+      display: none;
+    }
+  }
+
+  .lines {
+    height: 40px;
+    float: left;
+    position: relative;
+    top: 27px;
+    left: 20px;
+    cursor: pointer;
+
+    &__line {
+      display: block;
+      position: relative;
+      height: 3px;
+      width: 35px;
+      background: #FFF;
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 0px;
+      }
+      &:nth-child(2) {
+        top: 9px;
+      }
+      &:nth-child(3) {
+        top: 18px;
+      }
+    }
+
+    &.open {
+      .lines__line {
+        &:nth-child(1) {
+          top: 9px;
+          transform: rotate(135deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          left: -60px;
+        }
+        &:nth-child(3) {
+          top: 4px;
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+}
+
+nav.main {
+  display: none;
+  font-family: intrique_script;
+  font-size: 24px;
+  z-index: 0;
+  width: 25%;
+  @include respondTo(mobile) {
+    width: 100%;
+  }
+
+  background-color: $nani_red;
+  height: 89vh;
+  position: relative;
+  padding-top: 10px;
+
+  ul {
+    width: 100%;
+    margin-top: 45px;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+
+    li {
+      &:first-child {
+        border-top: 1px solid #FFF;
+      }
+      border-bottom: 1px solid #FFF;
+      padding: 10px 0;
+      a {
+        color: #FFF;
+      }
+
+      &.active {
+        background: #FFF;
+
+        a {
+          color: $nani_red;
+        }
+      }
+    }
+  }
+
+  footer {
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: $neutral_white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    .social-icon {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      img {
+        width: 30px;
+      }
+
+      &.fb {
+        background-color: $fb;
+      }
+      &.instagram {
+        background-color: $instagram;
+      }
+    }
+  }
+}

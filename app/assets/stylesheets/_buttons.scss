@@ -1,0 +1,20 @@
+.btn {
+  background-color: $nani_red;
+  border-radius: 3px;
+  color: #FFF;
+  appearance: none;
+  border: none;
+  padding: 0.6em 1.2em;
+
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+
+
+  &:hover {
+    text-decoration: none;
+    color: #FFF;
+
+    transition: all 0.5s ease-in-out;
+    opacity: 0.9;
+  }
+}

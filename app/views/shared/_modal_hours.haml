@@ -1,0 +1,62 @@
+.modal.hours
+  .close
+    %i.fa.fa-times
+
+  %h4.hours__title.text-center
+    We are currently
+  %h3.hours__status.text-center
+    = @status
+
+  .hours__timing
+    .row
+      .col-xs-5
+        .hours__timing_day.text-right
+          MON
+      .col-xs-7
+        .hours__timing_time.text-left
+          8a - 6p
+    .row
+      .col-xs-5
+        .hours__timing_day.text-right
+          TUES
+      .col-xs-7
+        .hours__timing_time.text-left
+          8a - 6p
+    .row
+      .col-xs-5
+        .hours__timing_day.text-right
+          WED
+      .col-xs-7
+        .hours__timing_time.text-left
+          8a - 6p
+    .row
+      .col-xs-5
+        .hours__timing_day.text-right
+          THU
+      .col-xs-7
+        .hours__timing_time.text-left
+          8a - 6p
+    .row
+      .col-xs-5
+        .hours__timing_day.text-right
+          FRI
+      .col-xs-7
+        .hours__timing_time.text-left
+          8a - 6p
+    .row
+      .col-xs-5
+        .hours__timing_day.text-right
+          SAT
+      .col-xs-7
+        .hours__timing_time.text-left
+          8a - 4p (or Sold Out)
+    .row
+      .col-xs-5
+        .hours__timing_day.text-right
+          SUN
+      .col-xs-7
+        .hours__timing_time.text-left
+          8a - 4p (or Sold Out)
+
+:javascript
+  hideModal();

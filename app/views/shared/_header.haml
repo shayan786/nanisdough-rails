@@ -1,0 +1,36 @@
+%header
+  %nav.lines
+    %span.lines__line
+    %span.lines__line
+    %span.lines__line
+  
+  %a{href: '/'}
+    = image_tag 'logos/logo_circle.jpg', class: 'logo', title: 'NanisDough'
+
+%nav.main
+  %ul
+    %li{class: "#{action_name === 'index' ? 'active' : ''}"}
+      %a{href: '/'}
+        Hello
+    %li{class: "#{action_name === 'menu' ? 'active' : ''}"}
+      %a{href: '/menu'}
+        Menu
+    %li{class: "#{action_name === 'location' ? 'active' : ''}"}
+      %a{href: '/location'}
+        Location
+    %li{class: "#{action_name === 'contact' ? 'active' : ''}"}
+      %a{href: '/contact'}
+        Contact
+    %li{class: "#{action_name === 'about' ? 'active' : ''}"}
+      %a{href: '/about'}
+        About
+
+  %footer
+    %a{href: 'http://www.facebook.com/nanisdough', target: '_blank', class: 'social-icon fb', rel: 'nofollow'}
+      = image_tag 'icons/facebook.svg', title: 'Facebook'
+    %a{href: 'http://www.instagram.com/nanisdough', target: '_blank', class: 'social-icon instagram', rel: 'nofollow'}
+      = image_tag 'icons/instagram.svg', title: 'Instagram'
+
+:javascript
+  headerInit();
+

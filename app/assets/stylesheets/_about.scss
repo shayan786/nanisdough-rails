@@ -1,0 +1,13 @@
+.about {
+  position: absolute;
+  top: 120px;
+  z-index: 0;
+  width: 100%;
+  min-height: 75%;
+
+  padding-bottom: 8em;
+
+  @include respondTo(desktop) {
+    top: 80px;
+  }
+}
