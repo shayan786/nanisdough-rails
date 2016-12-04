@@ -14,10 +14,51 @@
   &__image {
     height: 100%;
     width: 100%;
-    background-image: image_url('slider/slider_1.jpg');
     background-size: cover;
     background-position: center center;
     filter: grayscale(5%);
+    display: none;
+
+    &_1 {
+      display: block;
+      background-image: image_url('slider/desktop/slider_1.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_1.jpg');
+      }
+    }
+
+    &_2 {
+      background-image: image_url('slider/desktop/slider_2.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_2.jpg');
+      }
+    }
+
+    &_3 {
+      background-image: image_url('slider/desktop/slider_3.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_3.jpg');
+      }
+    }
+
+    &_4 {
+      background-image: image_url('slider/desktop/slider_4.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_4.jpg');
+      }
+    }
+
+    &_5 {
+      background-image: image_url('slider/desktop/slider_5.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_5.jpg');
+      }
+    }
 
     &:after {
       content: '\A';

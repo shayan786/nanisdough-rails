@@ -30,6 +30,8 @@ function animateFooterOnScroll () {
 } 
 
 function footerInit() {
-  toggleHoursModal();
-  animateFooterOnScroll();
+  $(document).ready(function () {
+    toggleHoursModal();
+    animateFooterOnScroll();
+  })
 }

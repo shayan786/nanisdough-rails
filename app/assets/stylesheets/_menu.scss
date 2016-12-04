@@ -1,9 +1,13 @@
 .menu {
   position: absolute;
-  top: 20px;
+  top: 130px;
   z-index: -1;
   padding-bottom: 8em;
   width: 100%;
+
+  @include respondTo(desktop) {
+    top: 20px;
+  }
 
   &__item {
     position: relative;
@@ -15,6 +19,7 @@
       height: 200px;
       background-size: cover;
       background-position: center center;
+      background-repeat: no-repeat;
 
       @include respondTo(desktop) {
         height: 225px;
@@ -69,7 +74,10 @@
     }
 
     &_description {
-      padding: 1em 0;
+      font-family: oswald_regular;
+      font-size: 1.1em;
+      padding: 1em 1.6em;
+      min-height: 5em;
     }
   }
 

@@ -5,6 +5,8 @@
   appearance: none;
   border: none;
   padding: 0.6em 1.2em;
+  margin: 0.4em 0;
+  cursor: pointer;
 
   text-decoration: none;
   transition: all 0.5s ease-in-out;
@@ -16,5 +18,32 @@
 
     transition: all 0.5s ease-in-out;
     opacity: 0.9;
+  }
+
+  &.blank {
+    background-color: $neutral_white;
+    color: $text_gray;
+
+    &.active {
+      background-color: $nani_red;
+      color: #FFF;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: disabled;
+  }
+
+  &__facebook {
+    background-color: $fb;
+
+    .fa {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      background-color: $fb;
+    }
   }
 }

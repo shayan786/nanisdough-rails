@@ -1,11 +1,26 @@
 .contact {
   position: absolute;
-  top: 130px;
   z-index: 0;
   width: 100%;
-  height: 75%; 
+  min-height: 75%;
+  padding-bottom: 8em;
 
-  @include respondTo(desktop) {
-    top: 80px;
+  &__catering {
+    padding: 8em 0 2em 0;
+    background-color: $neutral_white;
+    margin-bottom: 1em;
+  }
+
+  &__success {
+    display: none;
+    
+    .fa {
+      font-size: 4em;
+      color: $nani_red;
+    }
+  }
+
+  &__failure {
+    @extend .contact__success;
   }
 }

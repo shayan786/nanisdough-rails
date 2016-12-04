@@ -22,7 +22,7 @@ function toggleNav () {
         zIndex: '2'
       });
 
-      $('.contact, .about').css({
+      $('.contact, .about, .orders-new, .not-found').css({
         zIndex: '0'
       })
     }
@@ -32,7 +32,7 @@ function toggleNav () {
           width: $('nav.main').width()+'px'
         })
 
-        $('.logo').fadeIn('fast').css({
+        $('.logo').fadeIn('slow').css({
           zIndex: '1'
         })
       }
@@ -45,8 +45,12 @@ function toggleNav () {
         zIndex: '-2'
       });
 
-      $('.contact, .about').css({
+      $('.contact, .about, .not-found').css({
         zIndex: '-1'
+      })
+
+      $('.orders-new').css({
+        zIndex: '0'
       })
     }
 
@@ -55,8 +59,22 @@ function toggleNav () {
   });
 }
 
+function centerLogo() {
+  if ($(window).width() > 768) {
+    $('.logo').css({
+      left: ($('nav.main').width()/2) - ($('.logo').width()/2) + 'px'
+    });
+  }
+  else {
+    $('.logo').css({
+      left: ($(window).width()/2) - ($('.logo').width()/2) + 'px'
+    })
+  }
+}
+
 function headerInit () {
   $(document).ready(function () {
     toggleNav();
+    centerLogo();
   });
 }

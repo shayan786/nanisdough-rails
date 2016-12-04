@@ -1,8 +1,10 @@
 %section.contact
-  - if flash[:notice]
-    = flash[:notice]
+  .contact__catering
+    .container
+      Whether its to hear about new doughnut ideas or having some delivered to you for a wedding, business event, or a birthday. We'd love to hear from you!
+
   .container
-    %form{"accept-charset" => "UTF-8", action: "/contact", method: "POST"}
+    %form{"accept-charset" => "UTF-8"}
       = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
       .form-group
         %label{for: 'contact__email'}
@@ -14,3 +16,18 @@
         %textarea#contact__messsage.contact__message.form-control{name: 'contact[message]', rows: 4, placeholder: 'Umm...yes i need some doughnuts this moment please!', required: 'required'}
       %button.btn{type: 'submit'}
         Submit
+
+    .contact__success.text-center
+      .icon
+        %i.fa.fa-check-circle-o
+      %h3 Thanks for reaching out!
+      We'll get back to you shortly.
+
+
+    .contact__failure.text-center
+      .icon
+        %i.fa.fa-times-circle-o
+      %h3 Something went wrong, please reload page and try again!
+
+:javascript
+  contactInit();

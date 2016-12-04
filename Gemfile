@@ -37,6 +37,9 @@ gem "autoprefixer-rails"
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '>= 2.0.34'
 gem "font-awesome-rails"
+gem 'square_connect', '~>2.0'
+gem 'devise'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,6 +49,7 @@ group :development, :test do
   gem "rack-livereload"
   gem "better_errors"
   gem "binding_of_caller"
+  gem "dotenv-rails"
 end
 
 group :development do

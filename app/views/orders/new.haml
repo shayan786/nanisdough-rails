@@ -1,0 +1,194 @@
+%section.orders-new
+  %nav
+    .row.text-center
+      .col-xs-4.orders-new__step-1.active
+        %i.fa.fa-check-circle
+        TYPE
+      .col-xs-4.orders-new__step-2
+        %i.fa.fa-check-circle
+        PICK
+      .col-xs-4.orders-new__step-3
+        %i.fa.fa-check-circle
+        PAY
+  .row.text-center
+    .orders-new__cost{style: "#{'display: block' if current_user}"}
+      - if current_user
+        .orders-new__cost_welcome= "This order is for #{current_user.name}"
+      %span.symbol $
+      %span.amount 0.00
+
+  .row.text-center
+    .orders-new__type{style: "#{'display: block' if current_user}"}
+      .row
+        .col-xs-6.orders-new__type_pickup.active
+          .icon
+            %i.fa.fa-hand-lizard-o
+          PICKUP
+        .col-xs-6.orders-new__type_delivery.disabled
+          .icon
+            %i.fa.fa-car
+          DELIVERY
+          .subscript (Coming Soon)
+
+      .row
+        .container
+          .btn.btn__continue.text-center
+            CONTINUE
+
+  - if !current_user
+    .container
+      .row.text-center
+        .orders-new__signup
+          .orders-new__signup_helper Get doughnuts faster next time ...
+          %a.btn.btn__facebook.text-center{href: "/users/auth/facebook/"}
+            %i.fa.fa-facebook-official
+            CONNECT
+          .row.text-center.or
+            OR
+          .orders-new__signup_helper I don't mind the slower checkout ...
+          .btn.btn__guest.text-center
+            CONTINUE AS GUEST
+
+  .container
+    .row.orders-new__dates
+      .orders-new__dates_when.text-center
+        WHEN?
+      - @available_dates.each do |d|
+        .col-xs-3
+          .orders-new__dates_date
+            .btn.blank.text-center{"data-date" => "#{d}"}
+              = d.strftime('%-m/%-d')
+    .row.orders-new__times
+      - @available_times.each do |t|
+        .col-xs-3
+          .orders-new__times_time
+            .btn.blank.text-center{"data-time" => "#{t}"}
+              = t
+
+    .orders-new__items
+      %form.order-new__form{"accept-charset" => "UTF-8", action: "/order/new", method: "POST"}
+        = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+        = tag(:input, :type => "hidden", :name => 'order[total_cost]', :value => 0)
+        = tag(:input, :type => "hidden", :name => 'order[type]', :value => "")
+
+        - @doughnuts.each do |d|
+          .row.orders-new__items_item
+            .col-xs-8
+              .name
+                = d.name
+              .description
+                = d.description
+            .col-xs-1
+              .btn.btn__remove{"data-id" => "#{d.id}"}
+                = "-"
+            .col-xs-2
+              %input.form-control{type: "number", value: 0, disabled: "disabled"}
+            .col-xs-1
+              .btn.btn__add{"data-id" => "#{d.id}"}
+                +
+            .col-xs-4
+              .cost.text-center
+                %span.symbol $
+                %span.amount= sprintf('%.2f', d.cost)
+      .btn.btn__items_next.text-center
+        NEXT
+
+    .orders-new__payment
+      .orders-new__payment_summary
+        .sentence.text-center
+    
+      - if current_user && current_user.square_customer_id && @customer_info.cards.length > 0
+        .orders-new__payment_square-form
+          .row
+            .col-xs-10
+              %label Name
+              %br
+              %input#name{type: "text", disabled: "disabled", value: current_user.name}
+          %br
+
+          .row
+            .col-xs-10
+              %label Email
+              %br
+              %input#email{type: "email", disabled: "disabled", value: current_user.email}
+          %br
+
+          .row
+            .col-xs-8
+              %label Card Number
+              %input#cc{type: "cc", disabled: "disabled", value: "*********#{@customer_info.cards.first.last_4}"}
+              
+        %br
+        .btn.btn__payment_submit.text-center
+          SUBMIT ORDER
+      - else
+        .orders-new__payment_square-form
+          .row
+            .col-xs-10
+              %label Name
+              %br
+              %input#name{type: "text"}
+          %br
+
+          .row
+            .col-xs-10
+              %label Email
+              %br
+              %input#email{type: "email"}
+          %br
+
+          .row
+            .col-xs-8
+              %label Card Number
+              #sq-card-number
+          .row
+            .col-xs-4
+              %label CVV
+              #sq-cvv
+          .row
+            .col-xs-4
+              %label Exp.
+              #sq-expiration-date
+          .row
+            .col-xs-5
+              %label Zip
+              #sq-postal-code
+
+          .row
+            .btn.btn__payment_submit.text-center
+              SUBMIT ORDER
+
+    .orders-new__success.text-center
+      .row
+        .orders-new__success_icon
+          %i.fa.fa-calendar-check-o
+      .row
+        .orders-new__success_thanks
+          We've Got It!
+      .row
+        .orders-new__sucess_details
+          You'll recieve an email shortly with a confirmation.
+          %br
+          %br
+          Pickup at:
+          %br
+          %a{href: "https://www.google.com/maps/place/1622+S+Federal+Hwy,+Boynton+Beach,+FL+33435/@26.5135712,-80.0610388,17z/data=!3m1!4b1!4m5!3m4!1s0x88d8df1c01090139:0xa488350264d9eb58!8m2!3d26.5135712!4d-80.0588501", target: "_blank", rel: "nofollow"}
+            1622 S. Federal Hwy
+            %br
+            Boynton Beach, FL 33435
+          (Click for Map)
+
+    .orders-new__failure.text-center
+      .row
+        .orders-new__failure_icon
+          %i.fa.fa-times-circle
+      .row
+        .orders-new__failure_details
+          Looks like something went wrong.
+          %br
+          We've been notified and you have not been charged.
+
+
+
+:javascript
+  newOrderInit("#{ENV['SQUARE_APPLICATION_ID']}");
