@@ -60,6 +60,70 @@
       }
     }
 
+    &_6 {
+      background-image: image_url('slider/desktop/slider_6.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_6.jpg');
+      }
+    }
+
+    &_7 {
+      background-image: image_url('slider/desktop/slider_7.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_7.jpg');
+      }
+    }
+
+    &_8 {
+      background-image: image_url('slider/desktop/slider_8.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_8.jpg');
+      }
+    }
+
+    &_9 {
+      background-image: image_url('slider/desktop/slider_9.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_9.jpg');
+      }
+    }
+
+    &_10 {
+      background-image: image_url('slider/desktop/slider_10.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_10.jpg');
+      }
+    }
+
+    &_11 {
+      background-image: image_url('slider/desktop/slider_11.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_11.jpg');
+      }
+    }
+
+    &_12 {
+      background-image: image_url('slider/desktop/slider_12.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_12.jpg');
+      }
+    }
+
+    &_13 {
+      background-image: image_url('slider/desktop/slider_13.jpg');
+
+      @include respondTo(mobile) {
+        background-image: image_url('slider/mobile/slider_13.jpg');
+      }
+    }
+
     &:after {
       content: '\A';
       position: absolute;
