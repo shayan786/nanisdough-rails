@@ -3,7 +3,7 @@
     - @doughnuts.each_with_index do |d, i|
       .col-md-4
         .menu__item
-          .menu__item_img
+          .menu__item_img{style: "background-image: url(#{image_url("doughnuts/#{d.name.downcase.gsub(/\s+/, "")}.jpg")})"}
           .menu__item_name.text-center
             = d.name
           .row.menu__item_type
@@ -20,6 +20,3 @@
                   Filled
           .row.menu__item_description.text-center
             = d.description
-
-:javascript
-  menuInit();
