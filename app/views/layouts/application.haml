@@ -4,12 +4,13 @@
     %title
       = "Nanis Dough | #{action_name.capitalize}"
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-
+    = render '/shared/seo'
+    
     = favicon_link_tag 'favicon.ico' 
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'https://js.squareup.com/v2/paymentform'
+    -# = javascript_include_tag 'https://js.squareup.com/v2/paymentform'
   %body
     = render 'shared/header'
     = yield

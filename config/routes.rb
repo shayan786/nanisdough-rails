@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
-  get '/menu'       =>  'application#menu'
+  # get '/menu'       =>  'application#menu'
   get '/location'   =>  'application#location'
 
   get '/contact'    =>  'application#contact'
