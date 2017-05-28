@@ -9,10 +9,8 @@ header {
   }
 
   .logo {
-    border-radius: 50%;
-    width: 120px;
+    width: 139px;
     position: absolute;
-    left: 24%;
     z-index: 1;
 
     @include respondTo(desktop) {
@@ -72,8 +70,9 @@ header {
 
 nav.main {
   display: none;
-  font-family: intrique_script;
-  font-size: 24px;
+  font-family: handsean;
+  font-size: 20px;
+  letter-spacing: 2px;
   z-index: 0;
   width: 25%;
   position: fixed;
